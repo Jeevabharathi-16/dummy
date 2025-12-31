@@ -1,0 +1,46 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Add Product</title>
+
+    <!-- LINK CSS -->
+    <link rel="stylesheet" href="{% static 'add_product.css' %}">
+</head>
+<body>
+
+<div class="add-product-container">
+
+    <h2>Add Product</h2>
+
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+
+        <label>Product Name</label>
+        <input type="text" name="name" required>
+
+        <label>Price</label>
+        <input type="number" name="price" required>
+
+        <label>Image</label>
+        <input type="file" name="image" required>
+
+        <label>Category</label>
+        <select name="category" required>
+            {% for c in cat %}
+                <option value="{{ c.id }}">{{ c.ch }}</option>
+            {% endfor %}
+        </select>
+
+        <button type="submit">Add Product</button>
+    </form>
+
+    <p class="link">
+        <a href="{% url 'product_list' %}">Back to Products</a>
+    </p>
+
+</div>
+
+</body>
+</html>

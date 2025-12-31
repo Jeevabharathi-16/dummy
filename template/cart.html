@@ -1,0 +1,106 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Cart</title>
+
+    <!-- LINK CSS -->
+    <link rel="stylesheet" href="{% static 'cart.css' %}">
+</head>
+<body>
+
+<!-- TOP BAR -->
+<div class="top-bar">
+    <div class="title">Cart Page</div>
+
+    <a href="{% url 'product_list'%}">Product_list</a>
+
+    <div class="auth">
+        {% if user.is_authenticated %}
+            Logged in as <b>{{ user.username }}</b> |
+            <a href="{% url 'logout_user' %}">Logout</a>
+        {% else %}
+            <a href="{% url 'login_user' %}">Login</a>
+        {% endif %}
+    </div>
+</div>
+
+<h2>Your Cart</h2>
+
+<div class="nav">
+    <a href="{% url 'product_list' %}">Back to Products</a>
+</div>
+
+<hr>
+
+{% if items %}
+<!-- USER CART (DB BASED) -->
+<table class="cart-table">
+    <tr>
+        <th>Name</th>
+        <th>Price</th>
+        <th>Qty</th>
+        <th>Subtotal</th>
+        <th>Actions</th>
+    </tr>
+
+    {% for item in items %}
+    <tr>
+        <td>{{ item.product.p_name }}</td>
+        <td>₹{{ item.product.p_price }}</td>
+        <td>{{ item.quantity }}</td>
+        <td>₹{{ item.subtotal }}</td>
+        <td>
+            <a class="btn" href="{% url 'inc_cart_user' item.product.id %}">+</a>
+            <a class="btn warn" href="{% url 'dec_cart_user' item.product.id %}">-</a>
+            <a class="btn danger" href="{% url 'remove_cart_user' item.product.id %}">Remove</a>
+        </td>
+    </tr>
+    {% endfor %}
+</table>
+
+<div class="summary">
+    <strong>Total: ₹{{ total }}</strong>
+</div>
+
+<a class="clear-btn" href="{% url 'clear_cart_user' %}">Clear Cart</a>
+
+{% elif products %}
+<!-- SESSION CART -->
+<table class="cart-table">
+    <tr>
+        <th>Name</th>
+        <th>Price</th>
+        <th>Qty</th>
+        <th>Subtotal</th>
+        <th>Actions</th>
+    </tr>
+
+    {% for p in products %}
+    <tr>
+        <td>{{ p.p_name }}</td>
+        <td>₹{{ p.p_price }}</td>
+        <td>{{ p.quantity }}</td>
+        <td>₹{{ p.subtotal }}</td>
+        <td>
+            <a class="btn" href="{% url 'inc_cart' p.id %}">+</a>
+            <a class="btn warn" href="{% url 'dec_cart' p.id %}">-</a>
+            <a class="btn danger" href="{% url 'remove_cart' p.id %}">Remove</a>
+        </td>
+    </tr>
+    {% endfor %}
+</table>
+
+<div class="summary">
+    <strong>Total: ₹{{ total }}</strong>
+</div>
+
+<a class="clear-btn" href="{% url 'clear_cart' %}">Clear Cart</a>
+
+{% else %}
+<p class="empty">Cart is empty</p>
+{% endif %}
+
+</body>
+</html>

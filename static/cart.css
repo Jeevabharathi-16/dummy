@@ -1,0 +1,126 @@
+/* GENERAL */
+body {
+    font-family: Arial, sans-serif;
+    background: #f5f6fa;
+    margin: 0;
+    padding: 20px;
+}
+
+/* TOP BAR */
+.top-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #2c3e50;
+    color: white;
+    padding: 12px 20px;
+    border-radius: 6px;
+}
+
+.top-bar a {
+    color: #f1c40f;
+    text-decoration: none;
+    margin-left: 8px;
+}
+
+.top-bar a:hover {
+    text-decoration: underline;
+}
+
+.title {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+/* NAV */
+.nav {
+    margin: 15px 0;
+}
+
+.nav a {
+    text-decoration: none;
+    color: #2c3e50;
+    font-weight: bold;
+}
+
+.nav a:hover {
+    text-decoration: underline;
+}
+
+/* TABLE */
+.cart-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: white;
+    margin-top: 15px;
+}
+
+.cart-table th,
+.cart-table td {
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: center;
+}
+
+.cart-table th {
+    background: #ecf0f1;
+}
+
+/* BUTTONS */
+.btn {
+    padding: 4px 8px;
+    text-decoration: none;
+    background: #3498db;
+    color: white;
+    border-radius: 4px;
+    font-size: 13px;
+    margin: 0 2px;
+}
+
+.btn:hover {
+    background: #2980b9;
+}
+
+.warn {
+    background: #f39c12;
+}
+
+.warn:hover {
+    background: #d68910;
+}
+
+.danger {
+    background: #e74c3c;
+}
+
+.danger:hover {
+    background: #c0392b;
+}
+
+/* SUMMARY */
+.summary {
+    margin-top: 15px;
+    font-size: 18px;
+}
+
+/* CLEAR BUTTON */
+.clear-btn {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 8px 14px;
+    background: #e74c3c;
+    color: white;
+    text-decoration: none;
+    border-radius: 4px;
+}
+
+.clear-btn:hover {
+    background: #c0392b;
+}
+
+/* EMPTY CART */
+.empty {
+    margin-top: 30px;
+    font-size: 16px;
+    color: #555;
+}

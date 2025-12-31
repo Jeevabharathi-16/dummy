@@ -1,0 +1,78 @@
+/* PAGE SETUP */
+body {
+    font-family: Arial, sans-serif;
+    background: #f5f6fa;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+/* CONTAINER */
+.register-container {
+    background: white;
+    padding: 25px 30px;
+    width: 340px;
+    border-radius: 6px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+/* TITLE */
+.register-container h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* LABELS */
+.register-container label {
+    display: block;
+    margin-top: 10px;
+    font-weight: bold;
+}
+
+/* INPUTS */
+.register-container input {
+    width: 100%;
+    padding: 8px;
+    margin-top: 5px;
+    box-sizing: border-box;
+}
+
+/* BUTTON */
+.register-container button {
+    width: 100%;
+    margin-top: 20px;
+    padding: 10px;
+    background: #2ecc71;
+    border: none;
+    color: white;
+    font-size: 15px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.register-container button:hover {
+    background: #27ae60;
+}
+
+/* ERROR MESSAGE */
+.error {
+    color: red;
+    text-align: center;
+}
+
+/* LINKS */
+.link {
+    text-align: center;
+    margin-top: 12px;
+}
+
+.link a {
+    text-decoration: none;
+    color: #3498db;
+}
+
+.link a:hover {
+    text-decoration: underline;
+}

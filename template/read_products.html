@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>All Products</title>
+</head>
+<body>
+
+<h2>All Products</h2>
+
+<a href="{% url 'product_list' %}">Back</a>
+<hr>
+
+<ul>
+{% for p in products %}
+    <li>
+        {{ p.p_name }} - ₹{{ p.p_price }}
+        |
+        <a href="{% url 'delete_product' p.id %}">Delete</a>
+    </li>
+{% endfor %}
+</ul>
+
+</body>
+</html>
